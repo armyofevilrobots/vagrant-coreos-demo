@@ -1,0 +1,23 @@
+[Unit]
+#Reqs
+Description=Nginx web front-end
+Requires=docker.service
+#Requires=nginx-discovery@%i.service
+
+#Ordering
+#Before=nginx-discovery@%i.service
+After=docker.service
+ 
+[Service]
+TimeoutStartSec=0
+#Pre: Kill old jobs and make sure we have the package
+ExecStartPre=-/usr/bin/docker kill nginx.%i
+ExecStartPre=/usr/bin/docker pull nginx
+#Starting: note the --rm
+ExecStart=/usr/bin/docker run --rm --name nginx.%i -p 80:80 nginx
+
+#Stopping is just simple
+ExecStop=/usr/bin/docker stop nginx.%i
+ 
+[X-Fleet]
+X-Conflicts=nginx.*.service

@@ -1,0 +1,14 @@
+#cloud-config
+coreos:
+  etcd:
+    discovery: %USER_DATA%
+    addr: $private_ipv4:4001
+    peer-addr: $private_ipv4:7001
+  units:
+    - name: etcd.service
+      command: start
+    - name: fleet.service
+      command: start
+ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAyviojK9Ul8bpbVk3rhcJO/NZ+BNgZnpDSd9/gt6raDgxjSQ2cs8FKUs3h9XkxdH/PcxYjuD/IGkVIJJP7vr/emh1oHqrSKNtaUsS7EWj321xpqGtZjc1MK5NxjZUZt52N8ii6N+K4E99ipv0yr/jqDCK+7PEtkV0czKvzwjowCGKAIK32PHeuipkNB9jNqBgO+mF1/18yQuZbDuAv5fLdJ6N2chcwhAh7CTiy/cUiCncCvVRe1nFB7TiwkRAow49fQuUFH19/EJhnmRWx10BU6D8zGvzYCnaCOj4g2vHVexq7pEglv7Q8FmRT344g+x+wPMYizzKQwS6a8eFhS4Uvw==
+
