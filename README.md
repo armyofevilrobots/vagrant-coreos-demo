@@ -1,7 +1,9 @@
-# CoreOS Vagrant
+# CoreOS Vagrant Demo
 
-This repo provides a template Vagrantfile to create a CoreOS virtual machine using the VirtualBox software hypervisor.
-After setup is complete you will have a single CoreOS virtual machine running on your local machine.
+This repo is forked from https://github.com/coreos/coreos-vagrant/ who did all the heavy lifting.
+
+This demo allows us to build a 5 node cluster which will contain a series of docker images
+that run in a load-balanced HA cluster to serve up a cool distributed webgl demo app.
 
 ## Streamlined setup
 
