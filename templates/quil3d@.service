@@ -11,13 +11,13 @@ After=docker.service
 [Service]
 TimeoutStartSec=0
 #Pre: Kill old jobs and make sure we have the package
-ExecStartPre=-/usr/bin/docker kill quil_3d.%i
+ExecStartPre=-/usr/bin/docker kill quil3d.%i
 ExecStartPre=/usr/bin/docker pull armyofevilrobots/hello_quil_3d:v1
 #Starting: note the --rm
-ExecStart=/usr/bin/docker run --rm --name quil_3d.%i -p 5000:5000 armyofevilrobots/hello_quil_3d:v1 /usr/bin/java -jar /uberjar.jar
+ExecStart=/usr/bin/docker run --rm --name quil3d.%i -p 5000:5000 armyofevilrobots/hello_quil_3d:v2 /usr/bin/java -jar /uberjar.jar
 
 #Stopping is just simple
-ExecStop=/usr/bin/docker stop quil_3d.%i
+ExecStop=/usr/bin/docker stop quil3d.%i
  
 [X-Fleet]
-X-Conflicts=quil_3d.*.service
+X-Conflicts=quil3d.*.service
