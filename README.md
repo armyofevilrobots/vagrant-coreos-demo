@@ -1,6 +1,11 @@
 # CoreOS Vagrant Demo
 
 This repo is forked from https://github.com/coreos/coreos-vagrant/ who did all the heavy lifting.
+The methodology is a variation on the system built in 
+https://www.digitalocean.com/community/tutorials/how-to-use-confd-and-etcd-to-dynamically-reconfigure-services-in-coreos which is a great introduction to how all of the various pieces of
+coreOS/EtcD/ConfD/Fleet work together, and form a great basis for building out
+a new cluster (although some of those instructions are getting a bit long in
+the tooth at this point).
 
 This demo allows us to build a 5 node cluster which will contain a series of docker images
 that run in a load-balanced HA cluster to serve up a cool distributed webgl demo app.
